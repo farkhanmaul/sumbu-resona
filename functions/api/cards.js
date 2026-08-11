@@ -21,12 +21,25 @@ export async function onRequestPost(context) {
   }
   const username = raw.toLowerCase()
 
-  // Reuse an existing card for the same handle if present.
+  // Reuse an existing card for the same handle if present — but a failed
+  // card is re-queued as pending so it can be retried by the scorebot.
   const existingId = await env.RSNX_CARDS.get(`card:${username}`)
   if (existingId) {
     const existing = await env.RSNX_CARDS.get(`cards:${existingId}`)
     if (existing) {
       const card = JSON.parse(existing)
+      if (card.status === 'failed') {
+        card.status = 'pending'
+        card.error = null
+        card.score = null
+        card.tier = null
+        card.level = null
+        card.breakdown = null
+        card.reasoning = null
+        card.model = null
+        card.retried_at = new Date().toISOString()
+        await env.RSNX_CARDS.put(`cards:${existingId}`, JSON.stringify(card))
+      }
       return Response.json({ id: card.id, status: card.status, existing: true })
     }
   }

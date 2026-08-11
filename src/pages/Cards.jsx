@@ -8,14 +8,20 @@ const Page = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: 2.2rem;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: 2.4rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 12px;
 
-  span { color: ${({ theme }) => theme.colors.accent}; }
+  span {
+    background: ${({ theme }) => theme.colors.gradient};
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-  @media (max-width: 640px) { font-size: 1.7rem; }
+  @media (max-width: 640px) { font-size: 1.8rem; }
 `
 
 const Lead = styled.p`
@@ -71,18 +77,22 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  padding: 15px 24px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  padding: 15px 26px;
+  border-radius: ${({ theme }) => theme.radii.pill};
   border: none;
-  background: ${({ theme }) => theme.colors.accent};
+  background: ${({ theme }) => theme.colors.gradient};
   color: #fff;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.15s ease;
+  box-shadow: ${({ theme }) => theme.shadows.glowBlue};
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 
-  &:hover { background: ${({ theme }) => theme.colors.accentDark}; }
-  &:disabled { opacity: 0.5; cursor: default; }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: ${({ theme }) => theme.shadows.glow};
+  }
+  &:disabled { opacity: 0.5; cursor: default; transform: none; }
 `
 
 const Status = styled.p`
@@ -112,17 +122,21 @@ const LogTitle = styled.div`
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.accentDark};
+  background: ${({ theme }) => theme.colors.gradient};
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .live {
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.textMuted};
+    color: ${({ theme }) => theme.colors.textMuted};
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: ${({ theme }) => theme.colors.textMuted};
     font-weight: 600;
   }
 
@@ -130,7 +144,8 @@ const LogTitle = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: ${({ theme }) => theme.colors.accent};
+    background: ${({ theme }) => theme.colors.mint};
+    box-shadow: 0 0 8px ${({ theme }) => theme.colors.mint};
     animation: rsnx-blink 1.2s ease-in-out infinite;
   }
 
@@ -180,21 +195,27 @@ const DimRow = styled.div`
     font-size: 0.85rem;
     margin-bottom: 5px;
 
-    b { color: ${({ theme }) => theme.colors.accentDark}; }
+    b {
+      background: ${({ theme }) => theme.colors.gradient};
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
   }
 `
 
 const Bar = styled.div`
-  height: 6px;
-  border-radius: 3px;
+  height: 8px;
+  border-radius: 4px;
   background: ${({ theme }) => theme.colors.border};
   overflow: hidden;
 
   i {
     display: block;
     height: 100%;
-    background: ${({ theme }) => theme.colors.accent};
-    border-radius: 3px;
+    background: ${({ theme }) => theme.colors.gradient};
+    border-radius: 4px;
     transition: width 0.5s ease;
   }
 `
@@ -210,13 +231,14 @@ const Reasoning = styled.p`
 const TierBadge = styled.span`
   display: inline-block;
   padding: 6px 14px;
-  border-radius: 999px;
-  background: ${({ theme }) => theme.colors.accentSoft};
-  border: 1px solid ${({ theme }) => theme.colors.accent};
-  color: ${({ theme }) => theme.colors.accentDark};
-  font-size: 0.78rem;
+  border-radius: ${({ theme }) => theme.radii.pill};
+  background: ${({ theme }) => theme.colors.text};
+  border: 1px solid ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.mint};
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 12px;
 `

@@ -100,11 +100,11 @@ const Face = styled.div`
 const Front = styled(Face)`
   transform: rotateY(0deg) translateZ(0.4px);
   animation: rsnx-facefront 12s linear infinite;
-  color: #0e1a1d;
+  color: #0b1f24;
   background:
-    repeating-linear-gradient(105deg, rgba(8, 127, 151, 0.08) 0 1px, transparent 1px 5px),
-    radial-gradient(120% 90% at 18% 0%, rgba(10, 168, 199, 0.14) 0%, transparent 55%),
-    linear-gradient(150deg, #eefbfe 0%, #d5f2f8 60%, #b9e8f3 100%);
+    repeating-linear-gradient(105deg, rgba(6, 124, 150, 0.07) 0 1px, transparent 1px 5px),
+    radial-gradient(120% 90% at 18% 0%, rgba(10, 168, 199, 0.18) 0%, transparent 55%),
+    linear-gradient(150deg, #eefbfe 0%, #d6f5ee 55%, #bdf0e3 100%);
 
   @keyframes rsnx-facefront {
     0%, 24.99% { visibility: visible; }
@@ -118,11 +118,11 @@ const Back = styled(Face)`
   visibility: hidden;
   animation: rsnx-faceback 12s linear infinite;
   padding: 0;
-  color: #0e1a1d;
+  color: #0b1f24;
   background:
-    repeating-linear-gradient(105deg, rgba(10, 168, 199, 0.1) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(105deg, rgba(10, 168, 199, 0.09) 0 1px, transparent 1px 5px),
     radial-gradient(120% 90% at 80% 100%, rgba(255, 255, 255, 0.3) 0%, transparent 55%),
-    linear-gradient(135deg, #7fe3f4 0%, #2fc3df 55%, #0aa8c7 100%);
+    linear-gradient(135deg, #22e6a8 0%, #0aa8c7 55%, #067c96 100%);
 
   @keyframes rsnx-faceback {
     0%, 24.99% { visibility: hidden; }
@@ -137,7 +137,7 @@ const Holo = styled.div`
   border-radius: 7px;
   position: relative;
   margin-top: 4px;
-  background: linear-gradient(120deg, #bdf0fb, #0aa8c7 22%, #7fe3f4 45%, #c79bff 65%, #ffe79b 82%, #0aa8c7);
+  background: linear-gradient(120deg, #bdf0fb, #0aa8c7 22%, #22e6a8 45%, #7fe3f4 65%, #22e6a8 82%, #0aa8c7);
   background-size: 320% 320%;
   animation: rsnx-holo 7s linear infinite;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.3);

@@ -17,6 +17,10 @@ export default createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.body};
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.bg};
+    background-image:
+      radial-gradient(ellipse 60% 40% at 85% -5%, ${({ theme }) => theme.colors.glowBlue} 0%, transparent 60%),
+      radial-gradient(ellipse 50% 35% at 5% 10%, ${({ theme }) => theme.colors.glow} 0%, transparent 55%);
+    background-attachment: fixed;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
@@ -44,5 +48,20 @@ export default createGlobalStyle`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+
+  ::selection {
+    background: ${({ theme }) => theme.colors.mintSoft};
+    color: ${({ theme }) => theme.colors.mintDark};
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 `
