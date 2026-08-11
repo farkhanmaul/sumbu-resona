@@ -1,0 +1,8 @@
+node_modules
+dist
+.commandcode
+.env
+.env.*
+!.env.example
+.DS_Store
+*.local
