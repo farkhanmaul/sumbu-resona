@@ -1,0 +1,8 @@
+# Cloudflare Pages config for sumbu-resona
+name = "sumbu-resona"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-11-01"
+
+[[kv_namespaces]]
+binding = "RSNX_CARDS"
+id = "d0945bbf55b74c209ca363018a6bcd46"

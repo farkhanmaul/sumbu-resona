@@ -61,6 +61,7 @@ const navItems = [
   { href: '#about', label: 'About' },
   { href: '#vision', label: 'Vision' },
   { href: '#roadmap', label: 'Roadmap' },
+  { href: '#/cards', label: 'Cards' },
   { href: '#links', label: 'Links' },
 ]
 
